@@ -20,6 +20,9 @@
    },
    methods: {
      searchFilm: function() {
+       if(this.title == ''){
+         this.title = "''";
+       }
        axios.get('https://api.themoviedb.org/3/search/movie', {
          params: {
            api_key: '0019fe3454f31b1558a9dfb6c203ad5b',
@@ -28,7 +31,7 @@
          }
        }).then((response) => {
          this.films = response.data.results
-         console.log(this.films);
+         this.title = '';
        })
 
      }

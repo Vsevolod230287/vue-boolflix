@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+
+
 body {
   background-color: red;
 }
@@ -107,7 +109,15 @@ main {
 
 /* Style the back side */
 .flip-card-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
+}
+
+.flip-card-back img {
+  width: 50px;
+  height: 30px;
 }
