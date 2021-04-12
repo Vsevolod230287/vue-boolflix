@@ -21,12 +21,18 @@
         <span>BoolFlix</span>
       </div>
       <div class="search-film">
-        <input type="text" v-model="title" >
+        <input type="text" v-model="title" @keypress.enter="searchFilm" >
         <button type="button" name="button" @click="searchFilm">Premi</button>
       </div>
+      <ul>
+        <li><a href="#">Film</a></li>
+        <li><a href="#">Serie Tv</a></li>
+        <li><a href="#">Originali</a></li>
+        <li><a href="#">Recenti</a></li>
+        <li><a href="#">La mia lista</a></li>
+      </ul>
     </header>
     <main>
-      <div class="card-box">
         <div class="flip-card" v-for="film in films">
           <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -36,11 +42,9 @@
               <div class="card-back-info">
                 <h4>{{film.title}}</h4>
                 <p>{{film.original_title}}</p>
-                <p><img :src="`./img/${film.original_language}.png`" alt=""></p>
+                <p><img v-if="film.original_language" :src="`./img/${film.original_language}.png`" alt=""></p>
                 <p>{{film.vote_average}}</p>
               </div>
-
-            </div>
           </div>
         </div>
       </div>
