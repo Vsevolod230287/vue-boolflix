@@ -11,8 +11,19 @@
 
 <body>
   <div id="root">
-    <input type="text" v-model="title">
-    <button type="button" name="button" @click="searchFilm">Premi</button>
+    <header>
+      <div class="emblema">
+        <span>BoolFlix</span>
+      </div>
+      <div class="search-film">
+        <input type="text" v-model="title">
+        <button type="button" name="button" @click="searchFilm">Premi</button>
+      </div>
+    </header>
+
+
+
+
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
