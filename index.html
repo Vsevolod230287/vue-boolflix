@@ -38,8 +38,11 @@
             <div class="flip-card-front" :style="`background-image: url('${urlBase}original/${film.poster_path}')`">
             </div>
             <div class="flip-card-back" :style="`background-image: url('${urlBase}original/${film.backdrop_path}')`">
+                <div class="card-back-overlay">
+
+                </div>
               <div class="card-back-info">
-                <h4>{{getTitle(film)}}</h4>
+                <h3>{{getTitle(film)}}</h3>
                 <p>{{getOriginalTitle(film)}}</p>
                 <p><img v-if="film.original_language" :src="`./img/${film.original_language}.png`" alt=""></p>
                 <p>{{film.vote_average}}</p>
