@@ -109,10 +109,10 @@ main {
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
+  border-radius: 10px;
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
@@ -138,8 +138,9 @@ main {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #bbb;
-  color: black;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
 }
 
 /* Style the back side */
@@ -154,14 +155,35 @@ main {
 }
 
 .card-back-overlay {
+  border-radius: 10px;
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba( 0, 0, 0, 0.8);
 }
 .card-back-info {
+  width: 100%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+
+.card-back-info i {
+  color: red;
+}
+
+.flip-card-front {
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-back-info-inner{
+  padding: 20px 5px;
+  font-size: 11px;
+  color: rgb(165, 165, 182);
+}
+
+.card-back-info-inner span {
+  font-size: 13px;
+  color: white;
 }

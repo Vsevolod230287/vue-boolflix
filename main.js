@@ -4,12 +4,14 @@ var app = new Vue({
 
   el: '#root',
   data: {
+    arrStars: [],
     urlBase: 'https://image.tmdb.org/t/p/',
     films: [],
     title: '',
   },
   methods: {
     searchFilm: function() {
+      this.films = [];
       if (this.title == '') {
         this.title = "''";
       }
@@ -32,9 +34,9 @@ var app = new Vue({
           language: 'it-IT'
         }
       }).then((response) => {
-        console.log(response.data.results);
         this.films = [...this.films, ...response.data.results]
         this.title = '';
+        console.log(this.films);
       })
 
     },
@@ -51,6 +53,11 @@ var app = new Vue({
       } else if (film.name) {
         return film.original_name;
       }
+    },
+    voto: function(film) {
+    this.arrStars.length =  Math.ceil(film.vote_average / 2);
+    console.log(this.arrStars);
+    return this.arrStars.length;
     }
 
   }

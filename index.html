@@ -5,12 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./flexboxgrid.css">
   <link rel="stylesheet" href="./master.css">
   <title>Vue BoolFlix</title>
   <style>
-  [v-cloak] {
-    display: none;
-  }
+    [v-cloak] {
+      display: none;
+    }
   </style>
 </head>
 
@@ -21,7 +23,7 @@
         <span>BoolFlix</span>
       </div>
       <div class="search-film">
-        <input type="text" v-model="title" @keypress.enter="searchFilm" >
+        <input type="text" v-model="title" @keypress.enter="searchFilm">
         <button type="button" name="button" @click="searchFilm">Premi</button>
       </div>
       <ul>
@@ -33,20 +35,25 @@
       </ul>
     </header>
     <main>
-        <div class="flip-card" v-for="film in films">
-          <div class="flip-card-inner">
-            <div class="flip-card-front" :style="`background-image: url('${urlBase}original/${film.poster_path}')`">
+      <div class="flip-card" v-for="film in films">
+        <div class="flip-card-inner">
+          <div class="flip-card-front" :style="`background-image: url('${urlBase}w342/${film.poster_path}')`">
+            <h1 v-if="!film.poster_path">Il poster non ce!</h1>
+          </div>
+          <div class="flip-card-back" :style="`background-image: url('${urlBase}w342/${film.backdrop_path}')`">
+            <div class="card-back-overlay">
             </div>
-            <div class="flip-card-back" :style="`background-image: url('${urlBase}original/${film.backdrop_path}')`">
-                <div class="card-back-overlay">
+            <div class="card-back-info">
+              <div class="card-back-info-inner">
 
-                </div>
-              <div class="card-back-info">
-                <h3>{{getTitle(film)}}</h3>
-                <p>{{getOriginalTitle(film)}}</p>
-                <p><img v-if="film.original_language" :src="`./img/${film.original_language}.png`" alt=""></p>
-                <p>{{film.vote_average}}</p>
+
+                <div><span>Titolo: </span>{{getTitle(film)}}</div>
+                <div><span>Titolo originale: </span>{{getOriginalTitle(film)}}</div>
+                <div><img v-if="film.original_language" :src="`./img/${film.original_language}.png`" alt=""></div>
+                <div><span>Voto: </span>{{ voto(film) }}</div>
+                <i class="fas fa-star" v-for="star in arrStars"></i>
               </div>
+            </div>
           </div>
         </div>
       </div>
