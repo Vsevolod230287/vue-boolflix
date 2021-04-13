@@ -36,9 +36,10 @@
         <div class="flip-card" v-for="film in films">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="" alt="Avatar" style="width:300px;height:300px;">
+              <img :src="`${urlBase}original/${film.poster_path}`" alt="Avatar" style="width:300px;height:300px;">
             </div>
             <div class="flip-card-back">
+              <img src="`${urlBase}original/&{film.backdrop_path}`" alt="">
               <div class="card-back-info">
                 <h4>{{getTitle(film)}}</h4>
                 <p>{{getOriginalTitle(film)}}</p>

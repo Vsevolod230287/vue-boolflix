@@ -144,7 +144,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: dodgerblue;
+  /* background-color: dodgerblue; */
   color: white;
   transform: rotateY(180deg);
 }

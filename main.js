@@ -4,12 +4,12 @@ var app = new Vue({
 
   el: '#root',
   data: {
+    urlBase: 'https://image.tmdb.org/t/p/',
     films: [],
     title: '',
   },
   methods: {
     searchFilm: function() {
-
       if (this.title == '') {
         this.title = "''";
       }
@@ -32,6 +32,7 @@ var app = new Vue({
           language: 'it-IT'
         }
       }).then((response) => {
+        console.log(this.);
         this.films = [...this.films, ...response.data.results]
         this.title = '';
       })
