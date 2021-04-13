@@ -40,8 +40,8 @@
             </div>
             <div class="flip-card-back">
               <div class="card-back-info">
-                <h4>{{film.title}}</h4>
-                <p>{{film.original_title}}</p>
+                <h4>{{getTitle(film)}}</h4>
+                <p>{{getOriginalTitle(film)}}</p>
                 <p><img v-if="film.original_language" :src="`./img/${film.original_language}.png`" alt=""></p>
                 <p>{{film.vote_average}}</p>
               </div>
