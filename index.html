@@ -48,7 +48,7 @@
 
 
                 <div><span>Titolo: </span>{{getTitle(film)}}</div>
-                <div><span>Titolo originale: </span>{{getOriginalTitle(film)}}</div>
+                <div v-if="getTitle(film) != getOriginalTitle(film)"><span>Titolo originale: </span>{{getOriginalTitle(film)}}</div>
                 <div><img v-if="film.original_language" :src="`./img/${film.original_language}.png`" alt=""></div>
                 <div><span>Voto: </span>{{ voto(film) }}</div>
                 <i class="fas fa-star" v-for="star in arrStars"></i>

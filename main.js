@@ -11,6 +11,7 @@ var app = new Vue({
   },
   methods: {
     searchFilm: function() {
+
       this.films = [];
       if (this.title == '') {
         this.title = "''";
@@ -24,7 +25,7 @@ var app = new Vue({
         }
       }).then((response) => {
         this.films = [...this.films, ...response.data.results]
-        this.title = '';
+
       })
 
       axios.get('https://api.themoviedb.org/3/search/tv', {
@@ -35,9 +36,9 @@ var app = new Vue({
         }
       }).then((response) => {
         this.films = [...this.films, ...response.data.results]
-        this.title = '';
-        console.log(this.films);
+
       })
+      this.title = '';
 
     },
     getTitle: function(film) {
@@ -56,7 +57,6 @@ var app = new Vue({
     },
     voto: function(film) {
     this.arrStars.length =  Math.ceil(film.vote_average / 2);
-    console.log(this.arrStars);
     return this.arrStars.length;
     }
 

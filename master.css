@@ -178,12 +178,17 @@ main {
 }
 
 .card-back-info-inner{
-  padding: 20px 5px;
-  font-size: 11px;
-  color: rgb(165, 165, 182);
+  padding: 10px 5px;
+  font-size: 13px;
+  color: lightblue;
 }
 
 .card-back-info-inner span {
-  font-size: 13px;
+  font-weight: bold;
+  font-size: 14px;
   color: white;
+}
+
+.card-back-info-inner div {
+  margin-bottom: 5px;
 }
