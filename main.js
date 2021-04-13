@@ -32,7 +32,7 @@ var app = new Vue({
           language: 'it-IT'
         }
       }).then((response) => {
-        console.log(this.);
+        console.log(response.data.results);
         this.films = [...this.films, ...response.data.results]
         this.title = '';
       })
