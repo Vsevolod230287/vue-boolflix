@@ -6,19 +6,20 @@ var app = new Vue({
   data: {
     urlBase: 'https://image.tmdb.org/t/p/',
     films: [],
-    title: '',
+    inputTitle: '',
     arrStars: ['fas fa-star', 'far fa-star'],
   },
   methods: {
     searchFilm: function() {
       this.films = [];
-      if (this.title == '') {
-        this.title = "''";
+      if (this.inputTitle == '') {
+        this.inputTitle = "''";
       }
+
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
           api_key: '0019fe3454f31b1558a9dfb6c203ad5b',
-          query: this.title,
+          query: this.inputTitle,
           language: 'it-IT'
         }
       }).then((response) => {
@@ -27,13 +28,15 @@ var app = new Vue({
       axios.get('https://api.themoviedb.org/3/search/tv', {
         params: {
           api_key: '0019fe3454f31b1558a9dfb6c203ad5b',
-          query: this.title,
+          query: this.inputTitle,
           language: 'it-IT'
         }
       }).then((response) => {
-        this.films = [...this.films, ...response.data.results]
+        this.films = [...this.films, ...response.data.results];
+
       })
-      this.title = '';
+
+      this.inputTitle = '';
     },
     getTitle: function(film) {
       if (film.title) {
@@ -50,7 +53,6 @@ var app = new Vue({
       }
     },
     getVote: function(film) {
-      console.log('ok');
       return Math.ceil(film.vote_average / 2);
     }
 

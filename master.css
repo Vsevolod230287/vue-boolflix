@@ -198,6 +198,7 @@ main {
 }
 
 .overview {
+  margin-top: 5px;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 5px;
   border-radius: 7px;
@@ -207,8 +208,7 @@ main {
 }
 
 .voto {
-  display: flex;
-  flex-direction: row;
+margin-top: 5px;
 }
 
 ::-webkit-scrollbar {
