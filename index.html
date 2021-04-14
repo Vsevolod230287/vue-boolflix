@@ -24,7 +24,7 @@
       </div>
       <div class="search-film">
         <input type="text" v-model="inputTitle" @keypress.enter="searchFilm">
-        <button type="button" name="button" @click="searchFilm">Premi</button>
+        <button type="button" name="button" @click="searchFilm">Cerca</button>
       </div>
       <ul>
         <li><a href="#">Film</a></li>
@@ -33,6 +33,11 @@
         <li><a href="#">Recenti</a></li>
         <li><a href="#">La mia lista</a></li>
       </ul>
+      <div class="drop-nav">
+
+        <i class="fas fa-bars" @click="getDropMenu"></i>
+      </div>
+
     </header>
     <main>
         <p v-if="x">Non ci sono risultati.</p>
