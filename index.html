@@ -35,28 +35,40 @@
       </ul>
     </header>
     <main>
-      <div class="flip-card" v-for="film in films">
+      <div class="flip-card" v-for="film in films" v-if="film.poster_path">
         <div class="flip-card-inner">
           <div class="flip-card-front" :style="`background-image: url('${urlBase}w342/${film.poster_path}')`">
-            <h1 v-if="!film.poster_path">Il poster non ce!</h1>
+            <!-- <h1 v-if="!film.poster_path">Il poster non ce!</h1> -->
           </div>
-          <div class="flip-card-back" :style="`background-image: url('${urlBase}w342/${film.backdrop_path}')`">
+          <div class="flip-card-back" :style="`background-image: url('${urlBase}original/${film.backdrop_path}')`">
             <div class="card-back-overlay">
             </div>
             <div class="card-back-info">
               <div class="card-back-info-inner">
+                <div>
+                  <span>Titolo: </span>{{getTitle(film)}}
+                </div>
+                <div v-if="getTitle(film) != getOriginalTitle(film)">
+                  <span>Titolo originale: </span>{{getOriginalTitle(film)}}
+                </div>
+                <div>
+                  <img v-if="film.original_language" :src="`https://www.unknown.nu/flags/images/${film.original_language}-100`" alt="">
+                </div>
+                <div class="voto" >
+                     <i v-for="i in 5" :class="(i <= getVote(film)) ? arrStars[0] : arrStars[1]"></i>
+                </div>
 
+                <div class="overview" v-if="film.overview">
+                  <div class="">
+                    <span>Descrizione: </span>{{ film.overview }}
 
-                <div><span>Titolo: </span>{{getTitle(film)}}</div>
-                <div v-if="getTitle(film) != getOriginalTitle(film)"><span>Titolo originale: </span>{{getOriginalTitle(film)}}</div>
-                <div><img v-if="film.original_language" :src="`./img/${film.original_language}.png`" alt=""></div>
-                <div><span>Voto: </span>{{ voto(film) }}</div>
-                <i class="fas fa-star" v-for="star in arrStars"></i>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
-      </div>
     </main>
 
 

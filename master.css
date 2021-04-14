@@ -151,7 +151,7 @@ main {
 
 .flip-card-back img {
   width: 50px;
-  height: 50px;
+  height: 30px;
 }
 
 .card-back-overlay {
@@ -159,10 +159,11 @@ main {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba( 0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
+
 .card-back-info {
-  width: 100%;
+  height: 100%;
   position: absolute;
 }
 
@@ -177,7 +178,10 @@ main {
   align-items: center;
 }
 
-.card-back-info-inner{
+.card-back-info-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 10px 5px;
   font-size: 13px;
   color: lightblue;
@@ -190,5 +194,33 @@ main {
 }
 
 .card-back-info-inner div {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+}
+
+.overview {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 7px;
+  overflow-y: auto;
+  flex-grow: 1;
+
+}
+
+.voto {
+  display: flex;
+  flex-direction: row;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 7px;
+  background: lightblue;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(18, 25, 26);
+  border-radius: 10px;
 }
