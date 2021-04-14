@@ -134,6 +134,10 @@ main {
   justify-content: center;
 }
 
+main p {
+  color: red;
+}
+
 .flip-card {
   border-radius: 10px;
   margin: 10px;
