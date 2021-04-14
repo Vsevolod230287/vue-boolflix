@@ -35,7 +35,7 @@
       </ul>
     </header>
     <main>
-
+        <p v-if="x">Non ci sono risultati.</p>
       <div class="flip-card" v-for="film in films" v-if="film.poster_path && films.length">
         <div class="flip-card-inner">
           <div class="flip-card-front" :style="`background-image: url('${urlBase}w342/${film.poster_path}')`">
@@ -52,7 +52,7 @@
                 <div v-if="getTitle(film) != getOriginalTitle(film)">
                   <span>Titolo originale: </span>{{getOriginalTitle(film)}}
                 </div>
-                <div>
+                <div class="imgBandiera">
                   <img v-if="film.original_language" :src="`https://www.unknown.nu/flags/images/${film.original_language}-100`" alt="">
                 </div>
                 <div class="voto">
@@ -68,10 +68,11 @@
 
               </div>
             </div>
-          </div>
         </div>
       </div>
-      
+    </div>
+
+
 
 
 

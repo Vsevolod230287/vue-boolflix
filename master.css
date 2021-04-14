@@ -203,12 +203,16 @@ main {
   padding: 5px;
   border-radius: 7px;
   overflow-y: auto;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 
 }
 
 .voto {
 margin-top: 5px;
+}
+
+.imgBandiera {
+
 }
 
 ::-webkit-scrollbar {
